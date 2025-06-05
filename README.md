@@ -1,1 +1,1 @@
-Intended for use as a basic template for Webpack projects.
+This mini-project is intended to create a LinkedList in JavaScript and demonstrate an understanding of this data structure.

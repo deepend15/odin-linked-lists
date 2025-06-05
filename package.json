@@ -1,5 +1,5 @@
 {
-  "name": "project_name",
+  "name": "odin-linked-lists",
   "version": "1.0.0",
   "devDependencies": {
     "@eslint/js": "^9.24.0",
