@@ -116,12 +116,10 @@ export class LinkedList {
       let arr = [];
       for (let currentNode = this; ; currentNode = currentNode.nextNode) {
         arr.push(currentNode.value.toString());
-        if (currentNode.nextNode === null) {
-          arr.push("null");
-          break;
-        }
+        if (currentNode.nextNode === null) break;
       }
       let arr2 = arr.map((value) => `( ` + value + ` )`);
+      arr2.push("null");
       return arr2.join(" -> ");
     }
   }
