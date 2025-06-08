@@ -1,4 +1,4 @@
-class LinkedList {
+export class LinkedList {
   static Node = class {
     constructor(value = null, nextNode = null) {
       this.value = value;
@@ -126,6 +126,3 @@ class LinkedList {
     }
   }
 }
-
-const list = new LinkedList();
-list.append(1);
