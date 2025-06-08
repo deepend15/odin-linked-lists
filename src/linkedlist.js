@@ -87,20 +87,25 @@ class LinkedList {
   }
 
   contains(value) {
-    let response = false;
-    if (!list.value) {
-      return response;
-    } else {
+    if (!this.value) return false;
+    else {
       for (let currentNode = this; ; currentNode = currentNode.nextNode) {
-        if (currentNode.value === value) {
-          response = true;
-          break;
-        }
-        if (currentNode.nextNode === null) {
-          break;
-        }
+        if (currentNode.value === value) return true;
+        if (currentNode.nextNode === null) return false;
       }
-      return response;
+    }
+  }
+
+  find(value) {
+    if (!this.value) {
+      return null;
+    } else {
+      let index = 0;
+      for (let currentNode = this; ; currentNode = currentNode.nextNode) {
+        if (currentNode.value === value) return index;
+        if (currentNode.nextNode === null) return null;
+        index += 1;
+      }
     }
   }
 }
