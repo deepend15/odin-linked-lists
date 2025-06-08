@@ -108,6 +108,23 @@ class LinkedList {
       }
     }
   }
+
+  toString() {
+    if (!this.value) {
+      return "null";
+    } else {
+      let arr = [];
+      for (let currentNode = this; ; currentNode = currentNode.nextNode) {
+        arr.push(currentNode.value.toString());
+        if (currentNode.nextNode === null) {
+          arr.push("null");
+          break;
+        }
+      }
+      let arr2 = arr.map((value) => `( ` + value + ` )`);
+      return arr2.join(" -> ");
+    }
+  }
 }
 
 const list = new LinkedList();
