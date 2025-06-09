@@ -97,9 +97,8 @@ export class LinkedList {
   }
 
   find(value) {
-    if (!this.value) {
-      return null;
-    } else {
+    if (!this.value) return null;
+    else {
       let index = 0;
       for (let currentNode = this; ; currentNode = currentNode.nextNode) {
         if (currentNode.value === value) return index;
@@ -110,9 +109,8 @@ export class LinkedList {
   }
 
   toString() {
-    if (!this.value) {
-      return "null";
-    } else {
+    if (!this.value) return "null";
+    else {
       let arr = [];
       for (let currentNode = this; ; currentNode = currentNode.nextNode) {
         arr.push(currentNode.value.toString());
@@ -121,6 +119,22 @@ export class LinkedList {
       let arr2 = arr.map((value) => `( ` + value + ` )`);
       arr2.push("null");
       return arr2.join(" -> ");
+    }
+  }
+
+  insertAt(value, index) {
+    if (index < 0 || index > this.size()) {
+      if (!this.value && index === 0) this.append(value);
+      else throw new Error("Invalid index.");
+    } else {
+      if (index === this.size()) this.append(value);
+      else if (index === 0) this.prepend(value);
+      else {
+        const nodeAtIndex = this.at(index);
+        const nodeBeforeIndex = this.at(index - 1);
+        const newNode = new LinkedList.Node(value, nodeAtIndex);
+        nodeBeforeIndex.nextNode = newNode;
+      }
     }
   }
 }
