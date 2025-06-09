@@ -81,7 +81,7 @@ export class LinkedList {
       delete this.value;
       delete this.nextNode;
     } else {
-      let penultimateNode = this.at(this.size() - 2);
+      const penultimateNode = this.at(this.size() - 2);
       penultimateNode.nextNode = null;
     }
   }
@@ -134,6 +134,27 @@ export class LinkedList {
         const nodeBeforeIndex = this.at(index - 1);
         const newNode = new LinkedList.Node(value, nodeAtIndex);
         nodeBeforeIndex.nextNode = newNode;
+      }
+    }
+  }
+
+  removeAt(index) {
+    if (index < 0 || index > this.size() - 1) throw new Error("Invalid index.");
+    else {
+      if (this.size() === 1) {
+        delete this.value;
+        delete this.nextNode;
+      } else if (index === 0) {
+        const newHead = this.at(1);
+        this.value = newHead.value;
+        this.nextNode = newHead.nextNode;
+      } else if (index === this.size() - 1) {
+        const newTail = this.at(this.size() - 2);
+        newTail.nextNode = null;
+      } else {
+        const nodeBeforeIndex = this.at(index - 1);
+        const nodeAfterIndex = this.at(index + 1);
+        nodeBeforeIndex.nextNode = nodeAfterIndex;
       }
     }
   }
