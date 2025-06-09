@@ -58,18 +58,15 @@ export class LinkedList {
   }
 
   at(index) {
-    if (index < 0 || index > this.size() - 1) {
-      return undefined;
-    } else {
+    if (index < 0 || index > this.size() - 1) return undefined;
+    else {
       let counter = 0;
       let returnedNode;
       for (let currentNode = this; ; currentNode = currentNode.nextNode) {
         if (counter === index) {
           returnedNode = currentNode;
           break;
-        } else {
-          counter += 1;
-        }
+        } else counter += 1;
       }
       return returnedNode;
     }
